@@ -1,0 +1,182 @@
+/*
+ * Safety Boots Export Pro â ç§»å¨ç«¯ / å¹³æ¿ç«¯ èªéåºå¢å¼º
+ * è¯´æï¼æ¬æä»¶ ONLY éè¿ @media åªä½æ¥è¯¢å½±å å¹³æ¿(â¤1024px) ä¸ ææº(â¤768/480px)ï¼
+ *       æ¡é¢ç«¯(>1024px)çæ ·å¼å®å¨ä¸ä¼è¢«æ¹å¨ï¼ç¡®ä¿çµèçé¢ä¸åæ¥ä¸è´ã
+ * å è½½é¡ºåºï¼å¨ style.css ä¹åå è½½ï¼åç­ä¼åçº§ä¸æ¬æä»¶è§åçæã
+ */
+
+/* ================================
+   é²æ­¢æ¨ªåæº¢åºï¼ææº/å¹³æ¿æå¸¸è§âå¸å±ä¹±âåå ï¼
+================================ */
+@media (max-width: 1024px) {
+    html { overflow-x: clip; }
+    body { overflow-x: hidden; max-width: 100%; }
+    img, video, iframe, .container { max-width: 100%; }
+    * { -webkit-text-size-adjust: 100%; box-sizing: border-box; }
+}
+
+/* ================================
+   å¹³æ¿ + ææºï¼å¯¼èªæ¹ä¸ºæ±å ¡èå
+   ï¼åä¸»é¢ä»å¨ â¤768 å¯ç¨æ±å ¡ï¼å¹³æ¿æ¨ªå± 1024 ä»èµ°çµèå¯¼èªï¼
+    å  .nav-menu margin-left:140px å¯¼è´èåè¢«æ¤æ/æ¢è¡ï¼ææ©å±å° â¤1024ï¼
+================================ */
+@media (max-width: 1024px) {
+    .main-nav .container {
+        padding: 12px 18px;
+        flex-wrap: nowrap;
+    }
+    /* æ¾ç¤ºææºç«¯å³ä¾§æ§å¶åºï¼è¯­è¨ + æ±å ¡ï¼ */
+    .mobile-header-controls {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    /* æ±å ¡æé®æ¾ç¤º */
+    .mobile-menu-btn { display: flex; }
+    /* çµèç«¯å¯¼èªèåæ¹ä¸ºä¸æ */
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin-left: 0;
+        background: var(--white);
+        flex-direction: column;
+        gap: 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 0;
+    }
+    .nav-menu.open { display: flex; }
+    .nav-menu li { width: 100%; }
+    .nav-menu li a {
+        padding: 14px 20px;
+        border-bottom: 1px solid var(--border-color);
+        display: block;
+    }
+    /* éèçµèç«¯è¯­è¨åæ¢ï¼æ¾ç¤ºææºç«¯è¯­è¨åæ¢ */
+    .main-header .lang-switch { display: none; }
+    .mobile-lang-switch { display: flex; }
+
+    /* äº§åé¡µï¼éèå·¦ä¾§æ ï¼æ¾ç¤ºææºç«¯åç±»ä¸æ */
+    .products-sidebar.desktop-only { display: none; }
+    .desktop-only { display: none !important; }
+    .mobile-only { display: block !important; }
+    .mobile-category-select {
+        display: block;
+        position: relative;
+        z-index: 100;
+        margin-bottom: 20px;
+    }
+
+    /* å¹³æ¿ï¼å¤åç½æ ¼ä¿æ 2 åï¼é¿åè¿æ©åæ 1 åæ¾å¾ç©º */
+    .news-grid { grid-template-columns: repeat(2, 1fr); }
+    .products-layout,
+    .product-detail-layout,
+    .contact-page-layout,
+    .about-content { grid-template-columns: 1fr; }
+
+    .hero-content h1 { font-size: 36px; }
+}
+
+/* ================================
+   ææºï¼â¤768pxï¼
+================================ */
+@media (max-width: 768px) {
+    .container { padding: 0 16px; }
+    .main-nav .container { padding: 10px 15px; }
+
+    /* Hero */
+    .hero-section { height: 420px; }
+    .hero-content { padding: 0 16px; }
+    .hero-content h1 { font-size: 28px; }
+    .hero-content p { font-size: 16px; }
+    .hero-btn { padding: 13px 32px; font-size: 15px; }
+
+    /* äº§åç½æ ¼ï¼ä¸¤åæ´ç´§å */
+    .products-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .product-image { height: 168px; }
+    .product-overlay { display: none; }      /* ææºç«¯æ´å¡å¯ç¹ï¼å»ææ¬æµ®é®ç½© */
+    .product-card { cursor: pointer; }
+    .product-info { padding: 14px; }
+    .product-info h3 { font-size: 14px; }
+    .product-info p { font-size: 13px; }
+    .product-link { font-size: 13px; }
+
+    /* äº§åè¯¦æ */
+    .product-detail-layout { gap: 28px; }
+    .product-info-detail h1 { font-size: 24px; }
+    .specs-table td { padding: 10px 4px; font-size: 14px; }
+    .specs-table td:first-child { width: 110px; }
+    .product-actions { flex-direction: column; }
+    .product-actions a { text-align: center; }
+
+    /* é¡µé¢æ é¢æ  */
+    .page-header { padding: 50px 0 28px; }
+    .page-header h1 { font-size: 28px; }
+    .breadcrumb { font-size: 12px; }
+
+    /* éç¨åºå */
+    .section-title { margin-bottom: 30px; }
+    .section-title h2 { font-size: 26px; }
+    .section-title p { font-size: 15px; }
+
+    .about-section { padding: 50px 0; }
+    .about-image { height: 250px; }
+    .about-text h2 { font-size: 26px; }
+
+    .contact-cta-section { padding: 50px 0; }
+    .contact-cta h2 { font-size: 26px; }
+    .contact-cta p { font-size: 15px; }
+
+    .certificates-section { padding: 50px 0; }
+    .certificates-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+    /* èç³»é¡µ */
+    .contact-page-layout { gap: 28px; }
+    .contact-form { padding: 20px; }
+
+    /* æ°é» */
+    .news-section { padding: 50px 0; }
+    .news-grid { grid-template-columns: 1fr; }
+    .news-image { height: 200px; }
+    .news-title { font-size: 18px; }
+
+    /* é¡µè */
+    .site-footer { padding: 40px 0 20px; }
+    .footer-content { grid-template-columns: 1fr; gap: 28px; }
+    .footer-contact-inline { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+    /* æµ®å¨æé® */
+    .float-btns { right: 14px; bottom: 90px; }
+    .whatsapp-btn { width: 48px; height: 48px; }
+    .whatsapp-btn i { font-size: 24px; }
+    .whatsapp-btn .wa-tooltip { display: none; }
+    .back-to-top { width: 48px; height: 48px; }
+    .back-to-top i { font-size: 22px; }
+
+    /* äº§ååè¡¨ / è¯¦æé¡µåè¾¹è· */
+    .products-page { padding: 40px 0; }
+    .products-main { padding: 16px; }
+    .product-detail-section { padding: 40px 0; }
+}
+
+/* ================================
+   å°å±ææºï¼â¤480pxï¼
+================================ */
+@media (max-width: 480px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .certificates-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-section { height: 360px; }
+    .hero-content h1 { font-size: 24px; }
+    .hero-content p { font-size: 14px; }
+    .hero-btn { padding: 12px 28px; font-size: 14px; }
+    .gallery-main { height: 220px; }
+    .page-header h1 { font-size: 22px; }
+    .logo { font-size: 18px; }
+    .btn-large { padding: 12px 22px; font-size: 14px; }
+    .about-image { height: 200px; }
+    .specs-table td:first-child { width: 96px; }
+    .product-info h3 { font-size: 15px; }
+}
