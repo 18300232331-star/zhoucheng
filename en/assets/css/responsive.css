@@ -269,3 +269,36 @@ img { max-width: 100%; height: auto; }
     .float-btns { right: 10px; bottom: 80px; }
     .specs-table { min-width: 460px; font-size: 13px; }
 }
+
+/* ============================================================
+   2026-10-30 phone header fix (user screenshot proof):
+   EN phone header overflowed: long logo + language buttons
+   pushed the hamburger off-screen, and the Chinese button
+   wrapped vertically. ZH logo is short so it did not show.
+   Fix: on mobile/tablet the header is strictly one line:
+   logo shrinks and truncates, language buttons never wrap,
+   hamburger is fixed-size and can never be pushed off.
+   Applies to all EN+ZH pages (same file).
+   ============================================================ */
+@media (max-width: 1024px) {
+    .main-nav .container { padding: 10px 14px !important; gap: 10px; flex-wrap: nowrap !important; }
+    .main-nav .container .logo { flex: 1 1 auto; min-width: 0; font-size: 19px; }
+    .main-nav .container .logo a { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+    .mobile-header-controls { display: flex !important; flex: none; gap: 8px; align-items: center; margin-left: auto; }
+    .mobile-lang-switch { display: flex !important; flex: none; gap: 6px; }
+    .mobile-lang-switch a { white-space: nowrap !important; flex: none; padding: 4px 8px !important; font-size: 12px; }
+    .mobile-menu-btn { display: flex !important; flex: none; width: 32px; height: 32px; flex-direction: column; justify-content: center; align-items: center; gap: 5px; }
+    .mobile-menu-btn span { display: block !important; width: 22px; height: 3px; flex: none; margin: 0 !important; background: #fff !important; }
+    .lang-switch { display: none !important; }
+    .nav-menu { display: none; }
+    .nav-menu.open { display: flex; }
+}
+@media (max-width: 480px) {
+    .main-nav .container { padding: 8px 12px !important; gap: 8px; }
+    .main-nav .container .logo { font-size: 17px; }
+    .mobile-lang-switch a { padding: 3px 7px !important; font-size: 11.5px; }
+    .mobile-menu-btn { width: 30px; height: 30px; }
+}
+@media (max-width: 360px) {
+    .main-nav .container .logo { font-size: 16px; }
+}
