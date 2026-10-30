@@ -265,7 +265,9 @@
     { key: 'dgb', re: /deep\s*groove|深沟/i,           en: 'Deep Groove Ball', zh: '深沟球轴承' },
     { key: 'cyr', re: /cylindrical|圆柱/i,            en: 'Cylindrical Roller', zh: '圆柱滚子轴承' },
     { key: 'tar', re: /tapered|圆锥/i,                en: 'Tapered Roller', zh: '圆锥滚子轴承' },
-    { key: 'pbi', re: /pillow|insert|带座|内嵌/i,      en: 'Pillow Block & Insert', zh: '带座与内嵌轴承' }
+    { key: 'pbi', re: /pillow|insert|带座|内嵌/i,      en: 'Pillow Block & Insert', zh: '带座与内嵌轴承' },
+    { key: 'ndr', re: /needle|滚针/i,             en: 'Needle Roller', zh: '滚针轴承' },
+    { key: 'lnr', re: /linear|直线/i,              en: 'Linear Ball', zh: '直线球轴承' }
   ];
   var OTHER = { key: 'other', en: 'Other', zh: '其他' };
 
