@@ -180,3 +180,37 @@
     .specs-table td:first-child { width: 96px; }
     .product-info h3 { font-size: 15px; }
 }
+
+/* ============================================================
+   2026-10-30 header adaptive fix: laptop/desktop header balance
+   Root cause: desktop header had a fixed 140px left margin on
+   .nav-menu plus 30px gaps and 40px side padding, with no
+   breakpoint between 1024px (hamburger) and full desktop, so
+   long English labels overflowed / pushed the language switch
+   off the header on laptop widths. These rules keep the header
+   on one line, shrink spacing fluidly, and never wrap labels.
+   Applies to EN and ZH pages (both load this same file).
+   ============================================================ */
+.main-nav .container { gap: 24px; flex-wrap: nowrap; }
+.main-nav .container .logo { flex: none; white-space: nowrap; }
+.nav-menu { margin-left: 0 !important; flex: 1 1 auto; justify-content: flex-end; gap: clamp(14px, 2vw, 30px); flex-wrap: nowrap; }
+.nav-menu li { flex: none; }
+.nav-menu li a { white-space: nowrap; }
+.main-header .lang-switch { flex: none; margin-left: 0; }
+@media (max-width: 1440px) {
+    .main-nav .container { padding: 15px 28px; }
+    .nav-menu { gap: clamp(14px, 1.8vw, 26px); }
+}
+@media (max-width: 1280px) {
+    .main-nav .container { padding: 14px 24px; }
+    .logo { font-size: 20px; }
+    .nav-menu { gap: 18px; }
+    .nav-menu li a { font-size: 15px; }
+    .main-header .lang-switch { padding-left: 12px; }
+}
+@media (max-width: 1150px) {
+    .main-nav .container { padding: 12px 20px; gap: 16px; }
+    .logo { font-size: 19px; }
+    .nav-menu { gap: 14px; }
+    .nav-menu li a { font-size: 14.5px; }
+}
