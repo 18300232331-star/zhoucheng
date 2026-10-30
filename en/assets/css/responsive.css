@@ -214,3 +214,58 @@
     .nav-menu { gap: 14px; }
     .nav-menu li a { font-size: 14.5px; }
 }
+
+/* ============================================================
+   2026-10-30 full-device adaptive design (all devices)
+   Viewport scale (CSS width, not inches): phone <=480, large
+   phone <=768, 9in tablet 768-1024 portrait, 12in tablet
+   1024-1366 landscape, laptop <=1440, desktop >1440.
+   Rules are additive and never remove desktop content: grids
+   step down, hero/type scale fluidly, tables scroll instead of
+   overflowing, images stay fluid. Phone/tablet hamburger rules
+   above are unchanged.
+   ============================================================ */
+/* Fluid base: no horizontal overflow on any width */
+html, body { max-width: 100%; overflow-x: clip; }
+img { max-width: 100%; height: auto; }
+.main-nav .container, .container { max-width: min(1320px, 100%); }
+/* Fluid hero + titles: laptop/tablet/phone scale, desktop stays large */
+.hero-section { height: clamp(360px, 58vh, 600px); }
+.hero-content h1 { font-size: clamp(24px, 4.5vw, 52px); }
+.hero-content p { font-size: clamp(14px, 1.6vw, 18px); }
+.page-header h1 { font-size: clamp(22px, 3.5vw, 40px); }
+/* 12in tablet / small laptop (<=1366): 3-col products, tighter gaps */
+@media (max-width: 1366px) {
+    .products-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+    .certificates-grid { grid-template-columns: repeat(3, 1fr); }
+    .product-detail-layout { gap: 32px; }
+    .products-layout { gap: 28px; }
+}
+/* 9in tablet portrait + 12in tablet portrait (<=1024 already hamburger):
+   keep 2-col products so cards are not squeezed to 1 column */
+@media (max-width: 1024px) {
+    .products-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+    .news-grid { grid-template-columns: repeat(2, 1fr); }
+    .certificates-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-content { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    .hero-section { height: 420px; }
+    .product-image { height: auto; }
+    .product-image img { width: 100%; height: auto; object-fit: cover; }
+}
+/* Tablet 9in (<=820) and large phone (<=768): tables scroll, forms stack */
+@media (max-width: 820px) {
+    .product-info-detail { min-width: 0; overflow-x: auto; }
+    .specs-table { min-width: 520px; }
+    .product-detail-layout { grid-template-columns: 1fr; }
+    .contact-page-layout { grid-template-columns: 1fr; }
+    .footer-content { grid-template-columns: 1fr; }
+    .hero-section { height: 380px; }
+}
+/* Small phone (<=480): single column, full-width buttons, smaller floats */
+@media (max-width: 480px) {
+    .products-grid, .news-grid, .certificates-grid { grid-template-columns: 1fr; }
+    .hero-section { height: 340px; }
+    .product-actions a, .hero-btn, .btn-large { width: 100%; box-sizing: border-box; text-align: center; }
+    .float-btns { right: 10px; bottom: 80px; }
+    .specs-table { min-width: 460px; font-size: 13px; }
+}
