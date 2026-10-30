@@ -107,6 +107,8 @@
 
     DATA.forEach(function (p) {
       var dK = col(p.fields, 'd'), oK = col(p.fields, 'D'), wK = col(p.fields, 'B');
+      /* 推力轴承没有 B 列、高度列为 H：只有同时有 d、D 列时才把 H 视同宽度，避免带座外形尺寸里的 H（座高）被误当宽度 */
+      if (wK === null && dK !== null && oK !== null) wK = col(p.fields, 'H');
       var rows = p.rows.filter(function (r) {
         if (kw) {
           var hit = false;
@@ -114,15 +116,29 @@
           if (!hit) return false;
         }
         if (hasDim) {
-          if (dK === null || oK === null) return false;
-          var d = num(r[dK]), o = num(r[oK]), w = wK !== null ? num(r[wK]) : null;
-          if (d === null || o === null) return false;
-          if (dmin !== null && d < dmin) return false;
-          if (dmax !== null && d > dmax) return false;
-          if (omin !== null && o < omin) return false;
-          if (omax !== null && o > omax) return false;
-          if (wmin !== null && (w === null || w < wmin)) return false;
-          if (wmax !== null && (w === null || w > wmax)) return false;
+          /* 按实际有的维度过滤：只对用户填了、且该系列没有该列的维度排除整系列；用户只填内径时，有 d 列即可参与筛选 */
+          var d, o, w;
+          if (dmin !== null || dmax !== null) {
+            if (dK === null) return false;
+            d = num(r[dK]);
+            if (d === null) return false;
+            if (dmin !== null && d < dmin) return false;
+            if (dmax !== null && d > dmax) return false;
+          }
+          if (omin !== null || omax !== null) {
+            if (oK === null) return false;
+            o = num(r[oK]);
+            if (o === null) return false;
+            if (omin !== null && o < omin) return false;
+            if (omax !== null && o > omax) return false;
+          }
+          if (wmin !== null || wmax !== null) {
+            if (wK === null) return false;
+            w = num(r[wK]);
+            if (w === null) return false;
+            if (wmin !== null && w < wmin) return false;
+            if (wmax !== null && w > wmax) return false;
+          }
         }
         return true;
       });
@@ -154,7 +170,10 @@
         i = j + 1;
       }
       var body = rows.map(function (r) {
-        var tds = '<td><a href="' + T.contact + '?model=' + encodeURIComponent(r[cols[0].k] || '') + '" title="' + T.inqTip + '"><i class="fas fa-envelope" style="font-size:16px"></i></a></td>';
+        /* 询盘链接只带真正的型号：首列属于型号组且值非空、非占位符时才拼 ?model；否则直接链联系页，绝不拿尺寸数字当型号 */
+        var firstVal = (cols.length && r[cols[0].k] !== undefined && r[cols[0].k] !== null) ? String(r[cols[0].k]).trim() : '';
+        var inqHref = (cols.length && modelCols[cols[0].k] && firstVal !== '' && firstVal !== '-' && firstVal !== '—') ? T.contact + '?model=' + encodeURIComponent(firstVal) : T.contact;
+        var tds = '<td><a href="' + inqHref + '" title="' + T.inqTip + '"><i class="fas fa-envelope" style="font-size:16px"></i></a></td>';
         cols.forEach(function (c) {
           var v = (r[c.k] !== undefined ? r[c.k] : '');
           if (modelCols[c.k] && pUrl && v) {
@@ -242,7 +261,11 @@
     { key: 'srb', re: /spherical\s*roller|调心滚子/i, en: 'Spherical Roller', zh: '调心滚子轴承' },
     { key: 'sab', re: /self[-\s]?aligning|调心球/i,    en: 'Self-Aligning Ball', zh: '调心球轴承' },
     { key: 'acb', re: /angular\s*contact|角接触/i,     en: 'Angular Contact', zh: '角接触球轴承' },
-    { key: 'fpc', re: /four\s*point|四点/i,            en: 'Four Point Contact', zh: '四点接触球轴承' }
+    { key: 'fpc', re: /four\s*point|四点/i,            en: 'Four Point Contact', zh: '四点接触球轴承' },
+    { key: 'dgb', re: /deep\s*groove|深沟/i,           en: 'Deep Groove Ball', zh: '深沟球轴承' },
+    { key: 'cyr', re: /cylindrical|圆柱/i,            en: 'Cylindrical Roller', zh: '圆柱滚子轴承' },
+    { key: 'tar', re: /tapered|圆锥/i,                en: 'Tapered Roller', zh: '圆锥滚子轴承' },
+    { key: 'pbi', re: /pillow|insert|带座|内嵌/i,      en: 'Pillow Block & Insert', zh: '带座与内嵌轴承' }
   ];
   var OTHER = { key: 'other', en: 'Other', zh: '其他' };
 
