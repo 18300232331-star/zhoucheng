@@ -135,3 +135,14 @@
     });
 
 })();
+
+/* Language dropdown toggle (all .lang-dropdown blocks) */
+(function(){
+  document.querySelectorAll('.lang-dropdown').forEach(function(dd){
+    var btn=dd.querySelector('.lang-btn'), menu=dd.querySelector('.lang-menu');
+    if(!btn||!menu) return;
+    btn.addEventListener('click',function(e){e.stopPropagation();var open=menu.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');});
+  });
+  document.addEventListener('click',function(){document.querySelectorAll('.lang-menu.open').forEach(function(m){m.classList.remove('open');});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.lang-menu.open').forEach(function(m){m.classList.remove('open');});}});
+})();

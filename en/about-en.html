@@ -55,8 +55,22 @@ var HT_ADS_CONV_LABEL = ''; /* e.g. AbC-D_efGHIjklm */
             </div>
             <div class="mobile-header-controls">
                 <div class="mobile-lang-switch">
-                    <a href="../zh/about.html" onclick="document.cookie='ht_lang=cn;path=/;max-age=31536000'">中文</a>
-                    <a href="about-en.html" class="active">EN</a>
+                    <div class="lang-dropdown">
+                        <button class="lang-btn" type="button" aria-expanded="false">English ▾</button>
+                        <div class="lang-menu">
+                            <a href="about-en.html" class="on">English</a>
+                            <a href="about-en.html">العربية</a>
+                            <a href="about-en.html">Español</a>
+                            <a href="about-en.html">Português</a>
+                            <a href="about-en.html">Tiếng Việt</a>
+                            <a href="about-en.html">Bahasa Indonesia</a>
+                            <a href="about-en.html">ไทย</a>
+                            <a href="about-en.html">Bahasa Melayu</a>
+                            <a href="../zh/about.html">中文</a>
+                            <a href="about-en.html">한국어</a>
+                            <a href="about-en.html">日本語</a>
+                        </div>
+                    </div>
                 </div>
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu" onclick="var m=document.getElementById('navMenu');var b=this;if(m){m.classList.toggle('open');b.classList.toggle('active');}">
                     <span></span><span></span><span></span>
@@ -65,8 +79,22 @@ var HT_ADS_CONV_LABEL = ''; /* e.g. AbC-D_efGHIjklm */
             <ul class="nav-menu" id="navMenu"><li><a href="index-en.html">Home</a></li><li><a href="products-en.html">Products</a></li><li><a href="selection-en.html">Model Search</a></li><li><a href="news-en.html">News</a></li><li class="active"><a href="about-en.html">About Us</a></li><li><a href="factory-en.html">Our Factory</a></li><li><a href="contact-en.html">Contact</a></li>
             </ul>
             <div class="lang-switch">
-                <a href="../zh/about.html" onclick="document.cookie='ht_lang=cn;path=/;max-age=31536000'">中文</a>
-                <a href="about-en.html" class="active">English</a>
+                <div class="lang-dropdown">
+                    <button class="lang-btn" type="button" aria-expanded="false">English ▾</button>
+                    <div class="lang-menu">
+                        <a href="about-en.html" class="on">English</a>
+                        <a href="about-en.html">العربية</a>
+                        <a href="about-en.html">Español</a>
+                        <a href="about-en.html">Português</a>
+                        <a href="about-en.html">Tiếng Việt</a>
+                        <a href="about-en.html">Bahasa Indonesia</a>
+                        <a href="about-en.html">ไทย</a>
+                        <a href="about-en.html">Bahasa Melayu</a>
+                        <a href="../zh/about.html">中文</a>
+                        <a href="about-en.html">한국어</a>
+                        <a href="about-en.html">日本語</a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -94,6 +122,29 @@ var HT_ADS_CONV_LABEL = ''; /* e.g. AbC-D_efGHIjklm */
                 </p>
                 <p>We also hold an <b>ISO 9001:2015</b> quality management system certificate — see our <a href="certificates-en.html" style="color:var(--primary-color)">certifications page</a> for details and to request scans.</p>
 
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="products-section" style="padding:20px 0 80px">
+    <div class="container">
+        <div class="section-title"><h2>Inside Our Plant</h2><p>Factory, production and warehouse</p></div>
+        <div class="eq-grid">
+            <div class="eq-card">
+                <div class="eq-img"><img src="assets/img/photo/factory-exterior.jpg" alt="Bearing factory exterior" loading="lazy"></div>
+                <h3>Factory Exterior</h3>
+                <p style="font-size:13px;color:var(--text-light);padding:0 16px 14px">Our Qingdao plant, where forging, heat treatment, grinding, assembly and testing run under one roof.</p>
+            </div>
+            <div class="eq-card">
+                <div class="eq-img"><img src="assets/img/photo/factory-grinding-line.jpg" alt="Precision grinding production line" loading="lazy"></div>
+                <h3>Grinding Line</h3>
+                <p style="font-size:13px;color:var(--text-light);padding:0 16px 14px">Precision grinding lines turning hardened rings to P0/P6/P5 tolerances.</p>
+            </div>
+            <div class="eq-card">
+                <div class="eq-img"><img src="assets/img/photo/factory-warehouse.jpg" alt="Bearing warehouse and dispatch" loading="lazy"></div>
+                <h3>Warehouse &amp; Dispatch</h3>
+                <p style="font-size:13px;color:var(--text-light);padding:0 16px 14px">Finished bearings packed and dispatched from our warehouse.</p>
             </div>
         </div>
     </div>

@@ -55,8 +55,22 @@ var HT_ADS_CONV_LABEL = ''; /* e.g. AbC-D_efGHIjklm */
             </div>
             <div class="mobile-header-controls">
                 <div class="mobile-lang-switch">
-                    <a href="../en/about-en.html">EN</a>
-                    <a href="about.html" class="active">中文</a>
+                    <div class="lang-dropdown">
+                        <button class="lang-btn" type="button" aria-expanded="false">中文 ▾</button>
+                        <div class="lang-menu">
+                            <a href="../en/about-en.html">English</a>
+                            <a href="../en/about-en.html">العربية</a>
+                            <a href="../en/about-en.html">Español</a>
+                            <a href="../en/about-en.html">Português</a>
+                            <a href="../en/about-en.html">Tiếng Việt</a>
+                            <a href="../en/about-en.html">Bahasa Indonesia</a>
+                            <a href="../en/about-en.html">ไทย</a>
+                            <a href="../en/about-en.html">Bahasa Melayu</a>
+                            <a href="about.html" class="on">中文</a>
+                            <a href="../en/about-en.html">한국어</a>
+                            <a href="../en/about-en.html">日本語</a>
+                        </div>
+                    </div>
                 </div>
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu" onclick="var m=document.getElementById('navMenu');var b=this;if(m){m.classList.toggle('open');b.classList.toggle('active');}">
                     <span></span><span></span><span></span>
@@ -65,8 +79,22 @@ var HT_ADS_CONV_LABEL = ''; /* e.g. AbC-D_efGHIjklm */
             <ul class="nav-menu" id="navMenu"><li><a href="index.html">首页</a></li><li><a href="products.html">产品</a></li><li><a href="selection.html">型号查询</a></li><li><a href="news.html">新闻</a></li><li class="active"><a href="about.html">关于我们</a></li><li><a href="factory.html">工厂</a></li><li><a href="contact.html">联系我们</a></li>
             </ul>
             <div class="lang-switch">
-                <a href="../en/about-en.html">English</a>
-                <a href="about.html" class="active">中文</a>
+                <div class="lang-dropdown">
+                    <button class="lang-btn" type="button" aria-expanded="false">中文 ▾</button>
+                    <div class="lang-menu">
+                        <a href="../en/about-en.html">English</a>
+                        <a href="../en/about-en.html">العربية</a>
+                        <a href="../en/about-en.html">Español</a>
+                        <a href="../en/about-en.html">Português</a>
+                        <a href="../en/about-en.html">Tiếng Việt</a>
+                        <a href="../en/about-en.html">Bahasa Indonesia</a>
+                        <a href="../en/about-en.html">ไทย</a>
+                        <a href="../en/about-en.html">Bahasa Melayu</a>
+                        <a href="about.html" class="on">中文</a>
+                        <a href="../en/about-en.html">한국어</a>
+                        <a href="../en/about-en.html">日本語</a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -94,6 +122,29 @@ var HT_ADS_CONV_LABEL = ''; /* e.g. AbC-D_efGHIjklm */
                 </p>
                 <p>我们还持有 <b>ISO 9001:2015</b> 质量管理体系证书——详见我们的 <a href="certificates.html" style="color:var(--primary-color)">证书资质页</a> 了解详情并索取扫描件。</p>
 
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="products-section" style="padding:20px 0 80px">
+    <div class="container">
+        <div class="section-title"><h2>工厂一览</h2><p>工厂、生产与仓储</p></div>
+        <div class="eq-grid">
+            <div class="eq-card">
+                <div class="eq-img"><img src="../en/assets/img/photo/factory-exterior.jpg" alt="轴承工厂外观" loading="lazy"></div>
+                <h3>工厂外观</h3>
+                <p style="font-size:13px;color:var(--text-light);padding:0 16px 14px">青岛工厂，锻造、热处理、磨削、装配与检测一体完成。</p>
+            </div>
+            <div class="eq-card">
+                <div class="eq-img"><img src="../en/assets/img/photo/factory-grinding-line.jpg" alt="精密磨削生产线" loading="lazy"></div>
+                <h3>磨削生产线</h3>
+                <p style="font-size:13px;color:var(--text-light);padding:0 16px 14px">精密磨削生产线，将淬火套圈加工至 P0/P6/P5 精度。</p>
+            </div>
+            <div class="eq-card">
+                <div class="eq-img"><img src="../en/assets/img/photo/factory-warehouse.jpg" alt="轴承仓库与发货" loading="lazy"></div>
+                <h3>仓库与发货</h3>
+                <p style="font-size:13px;color:var(--text-light);padding:0 16px 14px">成品轴承在仓库打包、发这。</p>
             </div>
         </div>
     </div>
