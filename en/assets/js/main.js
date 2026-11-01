@@ -136,13 +136,25 @@
 
 })();
 
-/* Language dropdown toggle (all .lang-dropdown blocks) */
+/* Language dropdown toggle (all .lang-dropdown blocks).
+   Bound on DOM ready so the menus open even if this script is ever moved
+   to <head>; also closes any other open menu when one is opened. */
 (function(){
-  document.querySelectorAll('.lang-dropdown').forEach(function(dd){
-    var btn=dd.querySelector('.lang-btn'), menu=dd.querySelector('.lang-menu');
-    if(!btn||!menu) return;
-    btn.addEventListener('click',function(e){e.stopPropagation();var open=menu.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');});
-  });
-  document.addEventListener('click',function(){document.querySelectorAll('.lang-menu.open').forEach(function(m){m.classList.remove('open');});});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.lang-menu.open').forEach(function(m){m.classList.remove('open');});}});
+  function initLangDropdowns(){
+    document.querySelectorAll('.lang-dropdown').forEach(function(dd){
+      var btn=dd.querySelector('.lang-btn'), menu=dd.querySelector('.lang-menu');
+      if(!btn||!menu||btn.getAttribute('data-lang-bound')) return;
+      btn.setAttribute('data-lang-bound','1');
+      btn.addEventListener('click',function(e){
+        e.stopPropagation();
+        var wasOpen=menu.classList.contains('open');
+        document.querySelectorAll('.lang-menu.open').forEach(function(m){m.classList.remove('open');});
+        document.querySelectorAll('.lang-btn[aria-expanded="true"]').forEach(function(b){b.setAttribute('aria-expanded','false');});
+        if(!wasOpen){menu.classList.add('open');btn.setAttribute('aria-expanded','true');}
+      });
+    });
+    document.addEventListener('click',function(){document.querySelectorAll('.lang-menu.open').forEach(function(m){m.classList.remove('open');});document.querySelectorAll('.lang-btn[aria-expanded="true"]').forEach(function(b){b.setAttribute('aria-expanded','false');});});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.lang-menu.open').forEach(function(m){m.classList.remove('open');});}});
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initLangDropdowns);}else{initLangDropdowns();}
 })();

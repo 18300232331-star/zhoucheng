@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://huosidun.com.cn/</loc></url>
+  <url><loc>https://huosidun.com.cn/ar/contact.html</loc></url>
+  <url><loc>https://huosidun.com.cn/ar/index.html</loc></url>
+  <url><loc>https://huosidun.com.cn/ar/news-1.html</loc></url>
+  <url><loc>https://huosidun.com.cn/ar/news-2.html</loc></url>
+  <url><loc>https://huosidun.com.cn/ar/news-3.html</loc></url>
+  <url><loc>https://huosidun.com.cn/ar/news.html</loc></url>
+  <url><loc>https://huosidun.com.cn/ar/products.html</loc></url>
   <url><loc>https://huosidun.com.cn/en/about-en.html</loc></url>
   <url><loc>https://huosidun.com.cn/en/angular-contact-ball-bearings-en.html</loc></url>
   <url><loc>https://huosidun.com.cn/en/backing-bearings-en.html</loc></url>
@@ -62,32 +69,61 @@
   <url><loc>https://huosidun.com.cn/en/thank-you-en.html</loc></url>
   <url><loc>https://huosidun.com.cn/en/thrust-bearings-en.html</loc></url>
   <url><loc>https://huosidun.com.cn/en/wheel-hub-units-en.html</loc></url>
-  <url><loc>https://huosidun.com.cn/ar/contact.html</loc></url>
-  <url><loc>https://huosidun.com.cn/ar/index.html</loc></url>
-  <url><loc>https://huosidun.com.cn/ar/products.html</loc></url>
   <url><loc>https://huosidun.com.cn/es/contact.html</loc></url>
   <url><loc>https://huosidun.com.cn/es/index.html</loc></url>
+  <url><loc>https://huosidun.com.cn/es/news-1.html</loc></url>
+  <url><loc>https://huosidun.com.cn/es/news-2.html</loc></url>
+  <url><loc>https://huosidun.com.cn/es/news-3.html</loc></url>
+  <url><loc>https://huosidun.com.cn/es/news.html</loc></url>
   <url><loc>https://huosidun.com.cn/es/products.html</loc></url>
   <url><loc>https://huosidun.com.cn/id/contact.html</loc></url>
   <url><loc>https://huosidun.com.cn/id/index.html</loc></url>
+  <url><loc>https://huosidun.com.cn/id/news-1.html</loc></url>
+  <url><loc>https://huosidun.com.cn/id/news-2.html</loc></url>
+  <url><loc>https://huosidun.com.cn/id/news-3.html</loc></url>
+  <url><loc>https://huosidun.com.cn/id/news.html</loc></url>
   <url><loc>https://huosidun.com.cn/id/products.html</loc></url>
   <url><loc>https://huosidun.com.cn/ja/contact.html</loc></url>
   <url><loc>https://huosidun.com.cn/ja/index.html</loc></url>
+  <url><loc>https://huosidun.com.cn/ja/news-1.html</loc></url>
+  <url><loc>https://huosidun.com.cn/ja/news-2.html</loc></url>
+  <url><loc>https://huosidun.com.cn/ja/news-3.html</loc></url>
+  <url><loc>https://huosidun.com.cn/ja/news.html</loc></url>
   <url><loc>https://huosidun.com.cn/ja/products.html</loc></url>
   <url><loc>https://huosidun.com.cn/ko/contact.html</loc></url>
   <url><loc>https://huosidun.com.cn/ko/index.html</loc></url>
+  <url><loc>https://huosidun.com.cn/ko/news-1.html</loc></url>
+  <url><loc>https://huosidun.com.cn/ko/news-2.html</loc></url>
+  <url><loc>https://huosidun.com.cn/ko/news-3.html</loc></url>
+  <url><loc>https://huosidun.com.cn/ko/news.html</loc></url>
   <url><loc>https://huosidun.com.cn/ko/products.html</loc></url>
   <url><loc>https://huosidun.com.cn/ms/contact.html</loc></url>
   <url><loc>https://huosidun.com.cn/ms/index.html</loc></url>
+  <url><loc>https://huosidun.com.cn/ms/news-1.html</loc></url>
+  <url><loc>https://huosidun.com.cn/ms/news-2.html</loc></url>
+  <url><loc>https://huosidun.com.cn/ms/news-3.html</loc></url>
+  <url><loc>https://huosidun.com.cn/ms/news.html</loc></url>
   <url><loc>https://huosidun.com.cn/ms/products.html</loc></url>
   <url><loc>https://huosidun.com.cn/pt/contact.html</loc></url>
   <url><loc>https://huosidun.com.cn/pt/index.html</loc></url>
+  <url><loc>https://huosidun.com.cn/pt/news-1.html</loc></url>
+  <url><loc>https://huosidun.com.cn/pt/news-2.html</loc></url>
+  <url><loc>https://huosidun.com.cn/pt/news-3.html</loc></url>
+  <url><loc>https://huosidun.com.cn/pt/news.html</loc></url>
   <url><loc>https://huosidun.com.cn/pt/products.html</loc></url>
   <url><loc>https://huosidun.com.cn/th/contact.html</loc></url>
   <url><loc>https://huosidun.com.cn/th/index.html</loc></url>
+  <url><loc>https://huosidun.com.cn/th/news-1.html</loc></url>
+  <url><loc>https://huosidun.com.cn/th/news-2.html</loc></url>
+  <url><loc>https://huosidun.com.cn/th/news-3.html</loc></url>
+  <url><loc>https://huosidun.com.cn/th/news.html</loc></url>
   <url><loc>https://huosidun.com.cn/th/products.html</loc></url>
   <url><loc>https://huosidun.com.cn/vi/contact.html</loc></url>
   <url><loc>https://huosidun.com.cn/vi/index.html</loc></url>
+  <url><loc>https://huosidun.com.cn/vi/news-1.html</loc></url>
+  <url><loc>https://huosidun.com.cn/vi/news-2.html</loc></url>
+  <url><loc>https://huosidun.com.cn/vi/news-3.html</loc></url>
+  <url><loc>https://huosidun.com.cn/vi/news.html</loc></url>
   <url><loc>https://huosidun.com.cn/vi/products.html</loc></url>
   <url><loc>https://huosidun.com.cn/zh/about.html</loc></url>
   <url><loc>https://huosidun.com.cn/zh/angular-contact-ball-bearings.html</loc></url>
