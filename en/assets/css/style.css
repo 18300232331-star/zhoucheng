@@ -732,3 +732,101 @@ img { max-width: 100%; height: auto; }
 .lang-menu a.on{background:var(--primary-color);color:#fff}
 .mobile-lang-switch .lang-btn{height:30px;font-size:12px;padding:0 10px}
 .mobile-lang-switch .lang-menu{top:36px}
+
+/* ================================
+   LAYOUT FIX 2026-11-01 — 缺角居中（轴承站）
+   原理：把 N 列网格改写为 2N 列、每卡跨 2 列，满行卡片宽度与原来
+   完全一致（跨 2 列+1 个间隙 = 原 1 列宽，与间隙值无关）；不满的
+   最后一行用 :nth-child/:nth-last-child 把首卡推到居中列，余卡顺延，
+   最后一行看起来是故意居中的，不再像缺了一块。
+   用 !important 是因为本站另有后加载的 responsive.css /
+   blue-industrial.css 及 products 页内联 <style>，它们不在本次
+   改动目录内；!important 保证本修复在所有 11 语页面生效。
+   未动：eq-grid（3 列，工厂 6 张/关于 3 张本就满行）、stat-band
+   （4 项，桌面 4 列/手机 2 列均满行）、certificates-grid（auto-fit
+   自动收拢空列）、cert-grid（2 卡 2 列满行）、footer-content。
+   ================================ */
+/* ---- 产品网格：全宽区域 = 3 列 ---- */
+.products-grid { grid-template-columns: repeat(6, 1fr) !important; }
+.products-grid > * { grid-column: span 2 !important; }
+/* 最后一行剩 1 张：居中列（第 3–4 列） */
+.products-grid > :nth-child(3n+1):last-child { grid-column: 3 / span 2 !important; }
+/* 最后一行剩 2 张：首卡起于第 2 列，次卡顺延至第 4 列，左右各空 1 列 */
+.products-grid > :nth-child(3n+1):nth-last-child(2) { grid-column: 2 / span 2 !important; }
+/* ---- 产品网格：侧栏内区域（products 总页）= 2 列 ---- */
+.products-main .products-grid { grid-template-columns: repeat(4, 1fr) !important; }
+/* 抵消上面 3 列居中规则对侧栏网格的误伤（侧栏行首卡位置不同） */
+.products-main .products-grid > :nth-child(3n+1):last-child,
+.products-main .products-grid > :nth-child(3n+1):nth-last-child(2) { grid-column: span 2 !important; }
+/* 侧栏网格最后一行剩 1 张：居中（第 2–3 列） */
+.products-main .products-grid > :nth-child(2n+1):last-child { grid-column: 2 / span 2 !important; }
+/* ---- 新闻网格 = 2 列 ---- */
+.news-grid { grid-template-columns: repeat(4, 1fr) !important; }
+.news-grid > * { grid-column: span 2 !important; }
+/* 新闻最后一行剩 1 张：居中（第 2–3 列） */
+.news-grid > :nth-child(2n+1):last-child { grid-column: 2 / span 2 !important; }
+/* ---- 优势网格 = 4 列 ---- */
+.features-grid { grid-template-columns: repeat(8, 1fr) !important; }
+.features-grid > * { grid-column: span 2 !important; }
+/* 最后一行剩 1 张：居中（第 4–5 列） */
+.features-grid > :nth-child(4n+1):last-child { grid-column: 4 / span 2 !important; }
+/* 最后一行剩 2 张：起于第 3 列 */
+.features-grid > :nth-child(4n+1):nth-last-child(2) { grid-column: 3 / span 2 !important; }
+/* 最后一行剩 3 张：起于第 2 列 */
+.features-grid > :nth-child(4n+1):nth-last-child(3) { grid-column: 2 / span 2 !important; }
+/* ---- 产品总页分类导航 = 3 列 ---- */
+.type-nav { grid-template-columns: repeat(6, 1fr) !important; }
+.type-nav > * { grid-column: span 2 !important; }
+.type-nav > :nth-child(3n+1):last-child { grid-column: 3 / span 2 !important; }
+.type-nav > :nth-child(3n+1):nth-last-child(2) { grid-column: 2 / span 2 !important; }
+/* ---- 诚实询盘填充卡（枕块页空网格专用，不虚构产品/型号） ---- */
+.grid-cta-card { border: 2px dashed var(--primary-color) !important; background: #f6f9fd !important; text-align: center; }
+.grid-cta-card .product-info h3 { color: var(--primary-color); }
+/* ---- 平板/手机断点：2 列 ---- */
+@media (max-width: 800px) {
+    .products-grid { grid-template-columns: repeat(4, 1fr) !important; }
+    .products-grid > :nth-child(3n+1):last-child,
+    .products-grid > :nth-child(3n+1):nth-last-child(2) { grid-column: span 2 !important; }
+    .products-grid > :nth-child(2n+1):last-child { grid-column: 2 / span 2 !important; }
+    .features-grid { grid-template-columns: repeat(4, 1fr) !important; }
+    .features-grid > :nth-child(4n+1):last-child,
+    .features-grid > :nth-child(4n+1):nth-last-child(2),
+    .features-grid > :nth-child(4n+1):nth-last-child(3) { grid-column: span 2 !important; }
+    .features-grid > :nth-child(2n+1):last-child { grid-column: 2 / span 2 !important; }
+}
+@media (max-width: 991px) {
+    .type-nav { grid-template-columns: repeat(4, 1fr) !important; }
+    .type-nav > :nth-child(3n+1):last-child,
+    .type-nav > :nth-child(3n+1):nth-last-child(2) { grid-column: span 2 !important; }
+    .type-nav > :nth-child(2n+1):last-child { grid-column: 2 / span 2 !important; }
+}
+@media (max-width: 768px) {
+    .news-grid { grid-template-columns: 1fr !important; }
+    .news-grid > * { grid-column: auto !important; }
+    .news-grid > :nth-child(2n+1):last-child { grid-column: auto !important; }
+}
+/* ---- 手机断点：1 列，全部自动排布，无居中规则残留 ---- */
+@media (max-width: 640px) {
+    .type-nav { grid-template-columns: 1fr !important; }
+    .type-nav > * { grid-column: auto !important; }
+    .type-nav > :nth-child(3n+1):last-child,
+    .type-nav > :nth-child(3n+1):nth-last-child(2),
+    .type-nav > :nth-child(2n+1):last-child { grid-column: auto !important; }
+}
+@media (max-width: 480px) {
+    .products-grid { grid-template-columns: 1fr !important; }
+    .products-grid > * { grid-column: auto !important; }
+    .products-grid > :nth-child(3n+1):last-child,
+    .products-grid > :nth-child(3n+1):nth-last-child(2),
+    .products-grid > :nth-child(2n+1):last-child { grid-column: auto !important; }
+    .products-main .products-grid > :nth-child(2n+1):last-child { grid-column: auto !important; }
+    .products-main .products-grid > :nth-child(3n+1):last-child,
+    .products-main .products-grid > :nth-child(3n+1):nth-last-child(2) { grid-column: auto !important; }
+    .products-main .products-grid { grid-template-columns: 1fr !important; }
+    .features-grid { grid-template-columns: 1fr !important; }
+    .features-grid > * { grid-column: auto !important; }
+    .features-grid > :nth-child(4n+1):last-child,
+    .features-grid > :nth-child(4n+1):nth-last-child(2),
+    .features-grid > :nth-child(4n+1):nth-last-child(3),
+    .features-grid > :nth-child(2n+1):last-child { grid-column: auto !important; }
+}
