@@ -241,7 +241,7 @@ var HT_ADS_CONV_LABEL = ''; /* e.g. AbC-D_efGHIjklm */
         <div class="section-title"><h2>견적 받기</h2><p>모델(또는 도면)과 수량만으로 충분합니다. 24시간 내에 회신합니다</p></div>
         <div style="max-width:760px;margin:0 auto;background:#fff;border:1px solid var(--border-color);border-radius:8px;padding:26px 28px">
             <p style="color:var(--text-light);line-height:1.9;font-size:14px;margin-bottom:14px">표준 모델은 소량 주문 가능하며, 주문 제작 베어링은 사이즈당 50개부터 가능합니다. 재고 모델 7–15일, 주문 제작 25–45일. 재질 및 검사 성적서는 요청 시 제공합니다.</p>
-            <form method="post" action="https://formspree.io/f/xzeearno" data-external-form="pending-confirmation" data-notify-email="zzq@huosidun.com.cn" id="htQuoteForm">
+            <form method="post" action="https://formspree.io/f/xzeearno" data-external-form="pending-confirmation" data-notify-email="zzq@huosidun.com.cn" id="htQuoteForm"><input type="hidden" name="source" value="轴承询盘 · https://huosidun.com.cn/ko/self-aligning-ball-bearings.html">
                 <input type="hidden" name="action" value="huosidun_lead">
                 <input type="hidden" name="form_source" value="product_quote">
                 <input type="hidden" name="model" value="자동 조심 볼 베어링">
@@ -444,7 +444,7 @@ root.querySelector(".cm-chat-send").addEventListener("click", function () {
   fetch("https://formspree.io/f/xzeearno", {
     method: "POST",
     headers: { "Content-Type": "application/json", "Accept": "application/json" },
-    body: JSON.stringify({ message: msg.value, contact: ct.value, _subject: "Website chat message", page: location.href })
+    body: JSON.stringify({ message: msg.value, contact: ct.value, _subject: "轴承询盘·网站聊天", source: "轴承询盘 · https://huosidun.com.cn", page: location.href })
   }).then(function (r) {
     if (!r.ok) throw new Error("bad");
     done.hidden = false; msg.value = ""; ct.value = "";
