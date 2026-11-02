@@ -174,7 +174,7 @@ var HT_ADS_CONV_LABEL = ''; /* e.g. AbC-D_efGHIjklm */
         <div class="section-title"><h2>สอบถามเกี่ยวกับตลับลูกปืนนี้</h2><p>เพียงหมายเลขตลับลูกปืนและจำนวนก็พอ — เราจะตอบราคากับระยะเวลาจัดส่งภายใน 24 ชั่วโมง</p></div>
         <div style="max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--border-color);border-radius:8px;padding:26px 28px">
             <p style="font-size:14px;line-height:1.8;color:var(--text-light);margin:0 0 16px">รุ่นมาตรฐานสั่งจำนวนน้อยได้ ตลับลูกปืนสั่งทำตั้งแต่ 50 ชิ้นต่อขนาด รุ่นในสต็อก 7–15 วัน สั่งทำ 25–45 วัน รายงานวัสดุและการตรวจสอบมีตามคำขอ</p>
-<form method="post" action="https://formspree.io/f/xzeearno" data-external-form="pending-confirmation" data-notify-email="zzq@huosidun.com.cn">
+<form method="post" action="https://formspree.io/f/xzeearno" data-external-form="pending-confirmation" data-notify-email="zzq@huosidun.com.cn"><input type="hidden" name="source" value="轴承询盘 · https://huosidun.com.cn/th/product-10.html">
                 <input type="hidden" name="action" value="huosidun_lead">
                 <input type="hidden" name="form_source" value="product_quote">
                 <input type="hidden" name="model" value="สองแถว แบริ่งลูกกลิ้งเรียว">
@@ -374,7 +374,7 @@ root.querySelector(".cm-chat-send").addEventListener("click", function () {
   fetch("https://formspree.io/f/xzeearno", {
     method: "POST",
     headers: { "Content-Type": "application/json", "Accept": "application/json" },
-    body: JSON.stringify({ message: msg.value, contact: ct.value, _subject: "Website chat message", page: location.href })
+    body: JSON.stringify({ message: msg.value, contact: ct.value, _subject: "轴承询盘·网站聊天", source: "轴承询盘 · https://huosidun.com.cn", page: location.href })
   }).then(function (r) {
     if (!r.ok) throw new Error("bad");
     done.hidden = false; msg.value = ""; ct.value = "";
