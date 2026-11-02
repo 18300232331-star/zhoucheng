@@ -288,5 +288,90 @@ var HT_ADS_CONV_LABEL = ''; /* e.g. AbC-D_efGHIjklm */
 </script>
 <script src="../en/assets/js/site-filter.js"></script>
 <script src="../en/assets/js/main.js"></script>
+
+<style>
+.cm-chat{position:fixed;right:24px;bottom:260px;z-index:10000;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.cm-chat-btn{width:56px;height:56px;border-radius:50%;background:#0e4d7a;color:#fff;border:0;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.25);font-size:24px;line-height:1}
+.cm-chat-panel{width:min(340px,calc(100vw - 32px));background:#fff;border-radius:14px;box-shadow:0 12px 32px rgba(0,0,0,.28);overflow:hidden;font-family:inherit;font-size:14px;color:#222;text-align:left}
+.cm-chat-panel[hidden]{display:none}
+.cm-chat-head{background:#0e4d7a;color:#fff;padding:11px 14px;display:flex;justify-content:space-between;align-items:center;font-weight:700}
+.cm-chat-close{background:none;border:0;color:#fff;font-size:20px;cursor:pointer;line-height:1}
+.cm-chat-body{padding:12px 14px 14px}
+.cm-chat-greet{margin:0 0 10px}
+.cm-chat-quick{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.cm-chat-quick button{border:1px solid #d5dde5;background:#f2f6f9;border-radius:20px;padding:5px 10px;font-size:13px;cursor:pointer}
+.cm-chat-msg{width:100%;box-sizing:border-box;min-height:72px;border:1px solid #ccd6df;border-radius:8px;padding:8px;font:inherit;font-size:14px;resize:vertical}
+.cm-chat-contact{width:100%;box-sizing:border-box;border:1px solid #ccd6df;border-radius:8px;padding:8px;margin-top:8px;font:inherit;font-size:14px}
+.cm-chat-send{width:100%;border:0;border-radius:8px;background:#0e4d7a;color:#fff;padding:10px;margin-top:10px;font-size:14px;cursor:pointer}
+.cm-chat-wa{display:block;text-align:center;background:#25d366;color:#fff;text-decoration:none;border-radius:8px;padding:10px;margin-top:8px;font-weight:700}
+.cm-chat-note{font-size:12px;color:#667;margin:10px 0 0}
+.cm-chat-done{margin:10px 0 0;color:#0a7a42;font-weight:700}
+.cm-chat-done[hidden],.cm-chat-err[hidden]{display:none}
+.cm-chat-err{margin:10px 0 0;color:#b00020;font-size:13px}
+@media(max-width:640px){.cm-chat{right:16px;bottom:225px}.cm-chat-btn{width:50px;height:50px}}
+</style>
+
+<div class="cm-chat" id="cm-chat">
+<button class="cm-chat-btn" type="button" aria-label="Chat" title="Chat">&#128172;</button>
+<div class="cm-chat-panel" hidden>
+<div class="cm-chat-head"><span data-cm-t="title"></span><button class="cm-chat-close" type="button" aria-label="Close">&times;</button></div>
+<div class="cm-chat-body">
+<p class="cm-chat-greet" data-cm-t="greet"></p>
+<div class="cm-chat-quick">
+<button type="button" data-cm-q="0"></button>
+<button type="button" data-cm-q="1"></button>
+<button type="button" data-cm-q="2"></button>
+<button type="button" data-cm-q="3"></button>
+</div>
+<textarea class="cm-chat-msg" data-cm-ph="msg"></textarea>
+<input class="cm-chat-contact" type="text" data-cm-ph="contact">
+<button class="cm-chat-send" type="button" data-cm-t="send"></button>
+<a class="cm-chat-wa" href="https://wa.me/8618300232331" target="_blank" rel="noopener" data-cm-t="wa"></a>
+<p class="cm-chat-note" data-cm-t="note"></p>
+<p class="cm-chat-done" hidden data-cm-t="done"></p>
+<p class="cm-chat-err" hidden data-cm-t="err"></p>
+</div>
+</div>
+</div>
+
+<script>
+(function(){
+var D = {"en": {"title": "Chat with us", "greet": "Hi! Tell us what you need — price, catalog, samples or shipping. Leave a message and our sales team will reply during working hours.", "q": ["Price & MOQ", "Product catalog", "Sample order", "Shipping & delivery"], "msg": "Type your message...", "contact": "Your WhatsApp or email (optional)", "send": "Send message", "wa": "Chat on WhatsApp", "note": "We usually reply during working hours.", "done": "Thanks! Your message has been sent. We will get back to you soon.", "err": "Could not send. Please try WhatsApp instead."}, "ar": {"title": "تحدث معنا", "greet": "مرحباً! أخبرنا بما تحتاجه — السعر، الكتالوج، العينات أو الشحن. اترك رسالة وسيرد عليك فريق المبيعات خلال ساعات العمل.", "q": ["السعر والحد الأدنى للطلب", "كتالوج المنتجات", "طلب عينة", "الشحن والتوصيل"], "msg": "اكتب رسالتك...", "contact": "واتساب أو بريدك الإلكتروني (اختياري)", "send": "إرسال الرسالة", "wa": "تحدث عبر واتساب", "note": "نرد عادة خلال ساعات العمل.", "done": "شكراً! تم إرسال رسالتك. سنرد عليك قريباً.", "err": "تعذر الإرسال. يرجى المحاولة عبر واتساب."}, "es": {"title": "Chatea con nosotros", "greet": "¡Hola! Cuéntanos qué necesitas: precio, catálogo, muestras o envío. Deja un mensaje y nuestro equipo de ventas te responderá en horario laboral.", "q": ["Precio y MOQ", "Catálogo de productos", "Pedido de muestra", "Envío y entrega"], "msg": "Escribe tu mensaje...", "contact": "Tu WhatsApp o correo (opcional)", "send": "Enviar mensaje", "wa": "Chatea por WhatsApp", "note": "Normalmente respondemos en horario laboral.", "done": "¡Gracias! Tu mensaje ha sido enviado. Te responderemos pronto.", "err": "No se pudo enviar. Por favor, intenta por WhatsApp."}, "pt": {"title": "Converse conosco", "greet": "Olá! Diga-nos o que precisa — preço, catálogo, amostras ou envio. Deixe uma mensagem e nossa equipe de vendas responderá em horário comercial.", "q": ["Preço e MOQ", "Catálogo de produtos", "Pedido de amostra", "Envio e entrega"], "msg": "Digite sua mensagem...", "contact": "Seu WhatsApp ou e-mail (opcional)", "send": "Enviar mensagem", "wa": "Conversar no WhatsApp", "note": "Normalmente respondemos em horário comercial.", "done": "Obrigado! Sua mensagem foi enviada. Responderemos em breve.", "err": "Não foi possível enviar. Por favor, tente pelo WhatsApp."}, "vi": {"title": "Trò chuyện với chúng tôi", "greet": "Xin chào! Hãy cho chúng tôi biết bạn cần gì — giá, danh mục, mẫu hoặc vận chuyển. Để lại tin nhắn và đội ngũ bán hàng sẽ trả lời trong giờ làm việc.", "q": ["Giá & MOQ", "Danh mục sản phẩm", "Đặt mẫu", "Vận chuyển & giao hàng"], "msg": "Nhập tin nhắn của bạn...", "contact": "WhatsApp hoặc email của bạn (tùy chọn)", "send": "Gửi tin nhắn", "wa": "Chat qua WhatsApp", "note": "Chúng tôi thường trả lời trong giờ làm việc.", "done": "Cảm ơn! Tin nhắn của bạn đã được gửi. Chúng tôi sẽ trả lời sớm.", "err": "Không gửi được. Vui lòng thử qua WhatsApp."}, "id": {"title": "Chat dengan kami", "greet": "Hai! Beri tahu kami kebutuhan Anda — harga, katalog, sampel, atau pengiriman. Tinggalkan pesan dan tim penjualan kami akan membalas pada jam kerja.", "q": ["Harga & MOQ", "Katalog produk", "Pesanan sampel", "Pengiriman"], "msg": "Ketik pesan Anda...", "contact": "WhatsApp atau email Anda (opsional)", "send": "Kirim pesan", "wa": "Chat via WhatsApp", "note": "Kami biasanya membalas pada jam kerja.", "done": "Terima kasih! Pesan Anda telah terkirim. Kami akan segera membalas.", "err": "Gagal mengirim. Silakan coba lewat WhatsApp."}, "th": {"title": "แชทกับเรา", "greet": "สวัสดี! บอกเราว่าคุณต้องการอะไร — ราคา แคตตาล็อก ตัวอย่าง หรือการจัดส่ง ฝากข้อความไว้ ทีมขายจะตอบกลับในเวลาทำการ", "q": ["ราคาและ MOQ", "แคตตาล็อกสินค้า", "สั่งตัวอย่าง", "การจัดส่ง"], "msg": "พิมพ์ข้อความของคุณ...", "contact": "WhatsApp หรืออีเมลของคุณ (ไม่บังคับ)", "send": "ส่งข้อความ", "wa": "แชททาง WhatsApp", "note": "เรามักจะตอบกลับในเวลาทำการ", "done": "ขอบคุณ! ข้อความของคุณถูกส่งแล้ว เราจะตอบกลับโดยเร็ว", "err": "ส่งไม่สำเร็จ โปรดลองทาง WhatsApp"}, "ms": {"title": "Sembang dengan kami", "greet": "Hai! Beritahu kami keperluan anda — harga, katalog, sampel atau penghantaran. Tinggalkan mesej dan pasukan jualan kami akan membalas pada waktu bekerja.", "q": ["Harga & MOQ", "Katalog produk", "Pesanan sampel", "Penghantaran"], "msg": "Taip mesej anda...", "contact": "WhatsApp atau e-mel anda (pilihan)", "send": "Hantar mesej", "wa": "Sembang di WhatsApp", "note": "Kami biasanya membalas pada waktu bekerja.", "done": "Terima kasih! Mesej anda telah dihantar. Kami akan membalas secepat mungkin.", "err": "Gagal menghantar. Sila cuba melalui WhatsApp."}, "zh": {"title": "在线咨询", "greet": "您好！请告诉我们您的需求——价格、目录、样品或发货。留下消息，销售团队会在工作时间回复您。", "q": ["价格与起订量", "产品目录", "样品订单", "发货与配送"], "msg": "请输入您的消息...", "contact": "您的 WhatsApp 或邮箱（可选）", "send": "发送消息", "wa": "通过 WhatsApp 聊天", "note": "我们一般在工作时间回复。", "done": "谢谢！您的消息已发送，我们会尽快回复。", "err": "发送失败，请改用 WhatsApp。"}, "ko": {"title": "문의하기", "greet": "안녕하세요! 가격, 카탈로그, 샘플 또는 배송 등 필요한 사항을 알려주세요. 메시지를 남기시면 영업팀이 근무 시간에 회신드립니다.", "q": ["가격 및 MOQ", "제품 카탈로그", "샘플 주문", "배송"], "msg": "메시지를 입력하세요...", "contact": "WhatsApp 또는 이메일 (선택)", "send": "메시지 보내기", "wa": "WhatsApp으로 채팅", "note": "보통 근무 시간에 회신드립니다.", "done": "감사합니다! 메시지가 전송되었습니다. 곧 회신드리겠습니다.", "err": "전송에 실패했습니다. WhatsApp으로 시도해 주세요."}, "ja": {"title": "お問い合わせ", "greet": "こんにちは！価格、カタログ、サンプル、配送など、ご希望をお知らせください。メッセージを残していただければ、営業チームが営業時間内に返信します。", "q": ["価格とMOQ", "製品カタログ", "サンプル訂文", "配送"], "msg": "メッセージを入力してください...", "contact": "WhatsAppまたはメールアドレス（任意）", "send": "メッセージを送信", "wa": "WhatsAppでチャット", "note": "通常、営業時間内に返信します。", "done": "ありがとうございます！メッセージが送信されました。まもなく返信します。", "err": "送信できませんでした。WhatsAppでお試しください。"}};
+var lang = (document.documentElement.lang || "en").toLowerCase().split("-")[0];
+var T = D[lang] || D.en;
+var root = document.getElementById("cm-chat");
+if (!root) return;
+root.querySelectorAll("[data-cm-t]").forEach(function (el) { el.textContent = T[el.getAttribute("data-cm-t")] || ""; });
+root.querySelectorAll("[data-cm-ph]").forEach(function (el) { el.placeholder = T[el.getAttribute("data-cm-ph")] || ""; });
+root.querySelectorAll("[data-cm-q]").forEach(function (el) {
+  var i = +el.getAttribute("data-cm-q");
+  el.textContent = T.q[i] || "";
+  el.addEventListener("click", function () {
+    var t = root.querySelector(".cm-chat-msg");
+    t.value = T.q[i];
+    t.focus();
+  });
+});
+var panel = root.querySelector(".cm-chat-panel");
+root.querySelector(".cm-chat-btn").addEventListener("click", function () { panel.hidden = !panel.hidden; });
+root.querySelector(".cm-chat-close").addEventListener("click", function () { panel.hidden = true; });
+root.querySelector(".cm-chat-send").addEventListener("click", function () {
+  var msg = root.querySelector(".cm-chat-msg");
+  var ct = root.querySelector(".cm-chat-contact");
+  var done = root.querySelector(".cm-chat-done");
+  var err = root.querySelector(".cm-chat-err");
+  done.hidden = true; err.hidden = true;
+  if (!msg.value.trim()) { msg.focus(); return; }
+  fetch("https://formspree.io/f/xzeearno", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    body: JSON.stringify({ message: msg.value, contact: ct.value, _subject: "Website chat message", page: location.href })
+  }).then(function (r) {
+    if (!r.ok) throw new Error("bad");
+    done.hidden = false; msg.value = ""; ct.value = "";
+  }).catch(function () { err.hidden = false; });
+});
+})();
+</script>
 </body>
 </html>
