@@ -174,7 +174,7 @@ var HT_ADS_CONV_LABEL = ''; /* e.g. AbC-D_efGHIjklm */
         <div class="section-title"><h2>Tanyakan tentang bearing ini</h2><p>Nomor bearing dan jumlah sudah cukup — kami membalas dengan harga dan waktu pengiriman dalam 24 jam</p></div>
         <div style="max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--border-color);border-radius:8px;padding:26px 28px">
             <p style="font-size:14px;line-height:1.8;color:var(--text-light);margin:0 0 16px">Model standar dalam jumlah kecil; bearing kustom mulai 50 pcs per ukuran. Model stok 7–15 hari; kustom 25–45 hari. Laporan material dan inspeksi tersedia atas permintaan.</p>
-<form method="post" action="https://formspree.io/f/xzeearno" data-external-form="pending-confirmation" data-notify-email="zzq@huosidun.com.cn">
+<form method="post" action="https://formspree.io/f/xzeearno" data-external-form="pending-confirmation" data-notify-email="zzq@huosidun.com.cn"><input type="hidden" name="source" value="轴承询盘 · https://huosidun.com.cn/id/product-02.html">
                 <input type="hidden" name="action" value="huosidun_lead">
                 <input type="hidden" name="form_source" value="product_quote">
                 <input type="hidden" name="model" value="CC Seri Bearing Rol Sferis">
@@ -387,7 +387,7 @@ root.querySelector(".cm-chat-send").addEventListener("click", function () {
   fetch("https://formspree.io/f/xzeearno", {
     method: "POST",
     headers: { "Content-Type": "application/json", "Accept": "application/json" },
-    body: JSON.stringify({ message: msg.value, contact: ct.value, _subject: "Website chat message", page: location.href })
+    body: JSON.stringify({ message: msg.value, contact: ct.value, _subject: "轴承询盘·网站聊天", source: "轴承询盘 · https://huosidun.com.cn", page: location.href })
   }).then(function (r) {
     if (!r.ok) throw new Error("bad");
     done.hidden = false; msg.value = ""; ct.value = "";
