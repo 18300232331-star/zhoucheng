@@ -311,7 +311,7 @@ root.querySelector(".cm-chat-send").addEventListener("click", function () {
   fetch("https://formspree.io/f/xzeearno", {
     method: "POST",
     headers: { "Content-Type": "application/json", "Accept": "application/json" },
-    body: JSON.stringify({ message: msg.value, contact: ct.value, _subject: "Website chat message", page: location.href })
+    body: JSON.stringify({ message: msg.value, contact: ct.value, _subject: "轴承询盘·网站聊天", source: "轴承询盘 · https://huosidun.com.cn", page: location.href })
   }).then(function (r) {
     if (!r.ok) throw new Error("bad");
     done.hidden = false; msg.value = ""; ct.value = "";
