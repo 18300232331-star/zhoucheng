@@ -165,7 +165,7 @@ var HT_ADS_CONV_LABEL = ''; /* e.g. AbC-D_efGHIjklm */
         <div class="section-title"><h2>咨询这款轴承</h2><p>只需提供轴承型号与数量——我们在 24 小时内回复价格与交期</p></div>
         <div style="max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--border-color);border-radius:8px;padding:26px 28px">
             <p style="font-size:14px;line-height:1.8;color:var(--text-light);margin:0 0 16px">标准型号现货可小批量订购；定制非标轴承单规格 50 件起，大型轴承可单件定制。标准型号现货或 7–15 天；定制轴承一般 25–45 天（视热处理与试制周期）。材质证明、硬度与金相报告、尺寸精度检测报告；精密产品随附完整的 P5/P4 级检测数据，可配合第三方检验（SGS、BV）。</p>
-<form method="post" action="https://formspree.io/f/xzeearno" data-external-form="pending-confirmation" data-notify-email="zzq@huosidun.com.cn">
+<form method="post" action="https://formspree.io/f/xzeearno" data-external-form="pending-confirmation" data-notify-email="zzq@huosidun.com.cn"><input type="hidden" name="source" value="轴承询盘 · https://huosidun.com.cn/zh/product-13.html">
                 <input type="hidden" name="action" value="huosidun_lead">
                 <input type="hidden" name="form_source" value="product_quote">
                 <input type="hidden" name="model" value="Deep Groove Ball Bearings">
@@ -365,7 +365,7 @@ root.querySelector(".cm-chat-send").addEventListener("click", function () {
   fetch("https://formspree.io/f/xzeearno", {
     method: "POST",
     headers: { "Content-Type": "application/json", "Accept": "application/json" },
-    body: JSON.stringify({ message: msg.value, contact: ct.value, _subject: "Website chat message", page: location.href })
+    body: JSON.stringify({ message: msg.value, contact: ct.value, _subject: "轴承询盘·网站聊天", source: "轴承询盘 · https://huosidun.com.cn", page: location.href })
   }).then(function (r) {
     if (!r.ok) throw new Error("bad");
     done.hidden = false; msg.value = ""; ct.value = "";
