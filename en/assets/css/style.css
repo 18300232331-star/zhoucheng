@@ -14,9 +14,9 @@ Text Domain: safety-boots-export
 /* ================================
    WhatsApp æµ®å¨æé®
 ================================ */
-.float-btns { position: fixed; right: 24px; bottom: 120px; display: flex; flex-direction: column; gap: 12px; z-index: 9999; }
-.whatsapp-btn { width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,0.45); text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
-.whatsapp-btn:hover { transform: scale(1.12); box-shadow: 0 6px 24px rgba(37,211,102,0.6); }
+.float-btns { position: fixed; right: 24px; bottom: 120px; display: flex; flex-direction: column; gap: 14px; z-index: 9999; }
+.whatsapp-btn { width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 28px rgba(0,0,0,.30), 0 0 0 2px rgba(255,255,255,.85); text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
+.whatsapp-btn:hover { transform: scale(1.12); box-shadow: 0 10px 28px rgba(0,0,0,.30), 0 0 0 2px rgba(255,255,255,.85); }
 .whatsapp-btn i { color: #fff; font-size: 28px; }
 .whatsapp-btn .wa-tooltip { position: absolute; right: 68px; background: #25D366; color: #fff; font-size: 13px; padding: 6px 12px; border-radius: 6px; white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity 0.2s; }
 .whatsapp-btn .wa-tooltip::after { content: ''; position: absolute; right: -6px; top: 50%; transform: translateY(-50%); border: 6px solid transparent; border-left-color: #25D366; border-right: none; }
@@ -25,7 +25,7 @@ Text Domain: safety-boots-export
 /* ================================
    åå°é¡¶é¨æé®
 ================================ */
-.back-to-top { width: 56px; height: 56px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(192,57,43,0.4); cursor: pointer; border: none; transition: transform 0.2s, opacity 0.3s; opacity: 1; pointer-events: auto; }
+.back-to-top { width: 56px; height: 56px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 28px rgba(0,0,0,.30), 0 0 0 2px rgba(255,255,255,.85); cursor: pointer; border: none; transition: transform 0.2s, opacity 0.3s; opacity: 1; pointer-events: auto; }
 .back-to-top.visible { opacity: 1; pointer-events: auto; }
 .back-to-top:hover { transform: scale(1.12); }
 .back-to-top i { color: #fff; font-size: 24px; }
@@ -602,10 +602,10 @@ img { max-width: 100%; height: auto; }
 
     /* æµ®å¨æé® */
     .float-btns { right: 16px; bottom: 100px; }
-    .whatsapp-btn { width: 48px; height: 48px; }
+    .whatsapp-btn { width: 52px; height: 52px; }
     .whatsapp-btn i { font-size: 24px; }
     .whatsapp-btn .wa-tooltip { display: none; }
-    .back-to-top { width: 48px; height: 48px; }
+    .back-to-top { width: 52px; height: 52px; }
     .back-to-top i { font-size: 22px; }
 
     /* äº§åé¡µ */
@@ -833,3 +833,9 @@ img { max-width: 100%; height: auto; }
     .features-grid > :nth-child(2n+1):last-child { grid-column: auto !important; }
 }
 .article-wrap h2 { font-size: 2em; font-weight: bold; margin: 0; color: inherit; }
+
+/* uniform floating stack 2026-11-03: 56px buttons, 14px gaps, stronger shadow, gentle chat pulse (desktop chat bottom already 260px) */
+#cm-chat .cm-chat-btn{box-shadow:0 10px 28px rgba(0,0,0,.30),0 0 0 2px rgba(255,255,255,.85);animation:cmChatPulse 2.6s ease-out infinite}
+@keyframes cmChatPulse{0%{box-shadow:0 10px 28px rgba(0,0,0,.30),0 0 0 0 rgba(14,77,122,.35)}70%{box-shadow:0 10px 28px rgba(0,0,0,.30),0 0 0 14px rgba(14,77,122,0)}100%{box-shadow:0 10px 28px rgba(0,0,0,.30),0 0 0 0 rgba(14,77,122,0)}}
+@media (prefers-reduced-motion: reduce){#cm-chat .cm-chat-btn{animation:none}}
+@media (max-width:768px){#cm-chat{right:16px;bottom:232px}#cm-chat .cm-chat-btn{width:52px;height:52px}}
