@@ -158,3 +158,36 @@
   }
   if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initLangDropdowns);}else{initLangDropdowns();}
 })();
+
+/* Google Ads lead conversion AW-10882891720: fires once per form submit, then submits. */
+(function () {
+  function fireLeadConversion(done) {
+    var called = false;
+    function go() { if (!called) { called = true; done(); } }
+    try {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-10882891720/I5u4CJTP2aYdEMj_rsUo',
+          'value': 1.0,
+          'currency': 'CNY',
+          'event_callback': go
+        });
+        setTimeout(go, 600);
+      } else { go(); }
+    } catch (e) { go(); }
+  }
+  function bind() {
+    var forms = document.querySelectorAll('form[action*="formspree.io/f/xzeearno"]');
+    for (var i = 0; i < forms.length; i++) {
+      (function (f) {
+        f.addEventListener('submit', function (ev) {
+          if (f.getAttribute('data-cm-conv')) return;
+          ev.preventDefault();
+          f.setAttribute('data-cm-conv', '1');
+          fireLeadConversion(function () { f.submit(); });
+        });
+      })(forms[i]);
+    }
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', bind); } else { bind(); }
+})();
