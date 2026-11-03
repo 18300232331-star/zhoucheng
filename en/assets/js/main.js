@@ -184,6 +184,8 @@
           if (f.getAttribute('data-cm-conv')) return;
           ev.preventDefault();
           f.setAttribute('data-cm-conv', '1');
+          var src = f.querySelector('input[name="source"]');
+          if (src) { src.value = "轴承询盘 · " + location.origin + location.pathname; }
           fireLeadConversion(function () { f.submit(); });
         });
       })(forms[i]);
