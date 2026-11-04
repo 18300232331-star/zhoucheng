@@ -860,3 +860,15 @@ img { max-width: 100%; height: auto; }
 .cm-keystrip th{background:#eef4f8;width:34%}
 .cm-cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}
 .card-wa{display:inline-block;margin-left:10px;color:#1a7f4b;font-weight:700}
+
+/* batch 2 (competitor items 3,4,6): identity line, task nav, decision tables */
+.cm-identity{font-weight:600;font-size:1.05em;line-height:1.5;margin:14px 0}
+.cm-tasknav{margin:24px 0}
+.cm-tasknav .cm-task{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;margin:10px 0}
+.cm-tasknav .cm-task b{white-space:nowrap}
+.cm-decision{width:100%;border-collapse:collapse;margin:16px 0;font-size:.95em}
+.cm-decision th,.cm-decision td{border:1px solid #dde5ec;padding:8px 10px;text-align:left}
+.cm-decision th{background:#eef4f8}
+.cm-guide-note{color:#44586b;font-size:.95em;margin:8px 0}
+
+.cm-use{margin-top:4px}
