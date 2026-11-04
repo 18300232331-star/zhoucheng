@@ -734,6 +734,14 @@ img { max-width: 100%; height: auto; }
 .lang-menu a.on{background:var(--primary-color);color:#fff}
 .mobile-lang-switch .lang-btn{height:30px;font-size:12px;padding:0 10px}
 .mobile-lang-switch .lang-menu{top:36px}
+/* 2026-11-04: language menu readability — the header theme forces light link
+   colour (!important) on .lang-switch / .mobile-lang-switch links, which also
+   matches dropdown menu items on the white menu background. These overrides
+   (menu items only, nothing else) restore dark text, keep hover dark on the
+   light hover background, and keep the current language white on accent. */
+.main-header .lang-switch .lang-menu a,.mobile-lang-switch .lang-menu a{color:#1a1a2e!important}
+.main-header .lang-switch .lang-menu a:hover,.mobile-lang-switch .lang-menu a:hover{color:#1a1a2e!important}
+.main-header .lang-switch .lang-menu a.on,.mobile-lang-switch .lang-menu a.on{color:#fff!important}
 
 /* ================================
    LAYOUT FIX 2026-11-01 — 缺角居中（轴承站）
