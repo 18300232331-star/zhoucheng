@@ -741,7 +741,7 @@ img { max-width: 100%; height: auto; }
    light hover background, and keep the current language white on accent. */
 .main-header .lang-switch .lang-menu a,.mobile-lang-switch .lang-menu a{color:#1a1a2e!important}
 .main-header .lang-switch .lang-menu a:hover,.mobile-lang-switch .lang-menu a:hover{color:#1a1a2e!important}
-.main-header .lang-switch .lang-menu a.on,.mobile-lang-switch .lang-menu a.on{color:#fff!important}
+.main-header .lang-switch .lang-menu a.on,.mobile-lang-switch .lang-menu a.on{color:#fff!important;background:var(--primary-color)!important}
 
 /* ================================
    LAYOUT FIX 2026-11-01 — 缺角居中（轴承站）
