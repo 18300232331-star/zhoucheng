@@ -1,3 +1,4 @@
+html,body{overflow-x:clip}
 /*
 Theme Name: Safety Boots Export Pro v1.0.1
 Theme URI: https://example.com
@@ -863,7 +864,7 @@ img { max-width: 100%; height: auto; }
 
 /* batch 2 (competitor items 3,4,6): identity line, task nav, decision tables */
 .cm-identity{font-weight:600;font-size:1.05em;line-height:1.5;margin:14px 0}
-.cm-tasknav{margin:24px 0}
+.cm-tasknav{max-width:1140px;margin:24px auto;padding:0 20px}
 .cm-tasknav .cm-task{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;margin:10px 0}
 .cm-tasknav .cm-task b{white-space:nowrap}
 .cm-decision{width:100%;border-collapse:collapse;margin:16px 0;font-size:.95em}
@@ -874,12 +875,12 @@ img { max-width: 100%; height: auto; }
 .cm-use{margin-top:4px}
 
 /* batch 3 (competitor items 7,8,9,10): trust strip, process, faq, related */
-.cm-trust{display:flex;flex-wrap:wrap;gap:16px 28px;margin:20px 0}
+.cm-trust{display:flex;flex-wrap:wrap;gap:16px 28px;max-width:1140px;margin:20px auto;padding:0 20px}
 .cm-trust span b{font-size:1.25em}
-.cm-process{margin:24px 0}
+.cm-process{max-width:1140px;margin:24px auto;padding:0 20px}
 .cm-process ol{display:flex;flex-wrap:wrap;gap:8px 24px;margin:8px 0;padding-left:20px}
-.cm-faq{margin:20px 0}
+.cm-faq{max-width:1140px;margin:20px auto;padding:0 20px}
 .cm-faq details{margin:10px 0}
 .cm-faq summary{cursor:pointer;font-weight:600}
-.cm-related{margin:24px 0}
+.cm-related{max-width:1140px;margin:24px auto;padding:0 20px}
 .cm-related-links{display:flex;flex-wrap:wrap;gap:8px 16px}
