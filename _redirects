@@ -1,4 +1,3 @@
-https://www.huosidun.com.cn/* https://huosidun.com.cn/:splat 301
 /products/product-01/ /en/product-01-en 301
 /products/product-02/ /en/product-02-en 301
 /products/product-03/ /en/product-03-en 301
@@ -10,9 +9,13 @@ https://www.huosidun.com.cn/* https://huosidun.com.cn/:splat 301
 /products/product-09/ /en/product-09-en 301
 /products/product-10/ /en/product-10-en 301
 /products/product-11/ /en/product-11-en 301
+/products/product-13/ /en/product-13-en 301
 /product-category/cat-angular/ /en/angular-contact-ball-bearings-en 301
+/tapered-roller-bearings/ /en/tapered-roller-bearings-en 301
 /en/ /en/index-en 301
 /contact /en/contact-en 301
+/contact/ /en/contact-en 301
+/factory/ /en/factory-en 301
 /seo-url-separation/ / 301
 /selection/ / 301
 /feed/ / 301
